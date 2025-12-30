@@ -24,23 +24,28 @@ const Hero = () => {
                 ))}
               </div>
               <span className="font-semibold text-foreground">5.0</span>
-              <span className="text-muted-foreground text-sm">(22 Reviews)</span>
+              <span className="text-muted-foreground text-sm">on Google</span>
             </div>
 
             {/* Heading */}
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
-              Delicious South Indian Food at the{" "}
-              <span className="text-primary">Best Price</span>
+              Simple Food, Clean Place,{" "}
+              <span className="text-primary">Honest Prices</span>
             </h1>
 
-            {/* Subheading */}
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0">
-              Authentic home-style cooking in a clean, welcoming environment. 
-              Join our family for a taste of tradition.
+            {/* Subheading - Local, human copy */}
+            <p className="text-lg md:text-xl text-muted-foreground mb-4 max-w-xl mx-auto lg:mx-0">
+              That's what Vindhu is known for in Kendriya Vihar. Fresh dosas, hot idlis, 
+              and meals that remind you of home cooking.
+            </p>
+
+            {/* Odia tagline */}
+            <p className="text-base text-accent font-medium mb-8 max-w-xl mx-auto lg:mx-0">
+              ପ୍ରେମ ସହିତ ପକାଯାଇଥିବା ଖାଦ୍ୟ — Food cooked with love
             </p>
 
             {/* Service Icons */}
-            <div className="flex items-center justify-center lg:justify-start gap-6 mb-8">
+            <div className="flex items-center justify-center lg:justify-start gap-6 mb-6">
               <div className="flex items-center gap-2 text-foreground/80">
                 <div className="p-2 bg-accent/10 rounded-full">
                   <UtensilsCrossed className="w-5 h-5 text-accent" />
@@ -57,7 +62,7 @@ const Hero = () => {
 
             {/* Price Range */}
             <p className="text-muted-foreground mb-8">
-              <span className="font-semibold text-accent">₹1–200</span> per person
+              Meals from <span className="font-semibold text-accent">₹35 to ₹200</span> — no hidden charges
             </p>
 
             {/* CTA Buttons */}
@@ -68,7 +73,7 @@ const Hero = () => {
                 className="w-full sm:w-auto"
               >
                 <Phone className="w-5 h-5" />
-                Call Now
+                Call & Book a Table
               </Button>
               <Button
                 variant="outline"
@@ -77,7 +82,7 @@ const Hero = () => {
                 className="w-full sm:w-auto"
               >
                 <MapPin className="w-5 h-5" />
-                Get Directions
+                Visit Vindhu Today
               </Button>
             </div>
           </div>
@@ -87,7 +92,7 @@ const Hero = () => {
             <div className="relative rounded-2xl overflow-hidden shadow-card">
               <img
                 src={heroImage}
-                alt="Delicious South Indian food spread with dosa, idli, sambhar and chutney"
+                alt="Fresh South Indian dosa with sambhar and chutney at Vindhu restaurant in Bhubaneswar"
                 className="w-full h-auto object-cover aspect-[4/3]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/10 to-transparent" />
@@ -99,6 +104,13 @@ const Hero = () => {
               <p className="text-sm text-muted-foreground">Serving fresh & hot!</p>
             </div>
           </div>
+        </div>
+
+        {/* Local area line below hero */}
+        <div className="text-center mt-12 pt-8 border-t border-border/50">
+          <p className="text-muted-foreground text-base md:text-lg">
+            🏠 Serving <span className="font-semibold text-foreground">Kendriya Vihar, Badaraghunathpur</span> & nearby Bhubaneswar areas with fresh South Indian food
+          </p>
         </div>
       </div>
     </section>

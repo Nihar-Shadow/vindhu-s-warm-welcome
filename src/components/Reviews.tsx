@@ -1,19 +1,19 @@
-import { Star, Quote } from "lucide-react";
+import { Star, Quote, ExternalLink } from "lucide-react";
 
 const reviews = [
   {
     quote: "Ambiance and behaviour of the staffs are also good. Clean place with tasty food!",
-    author: "Happy Customer",
+    author: "Local Resident",
     rating: 5,
   },
   {
     quote: "The staff was polite and the place was clean. Food was served hot and fresh.",
-    author: "Local Visitor",
+    author: "Regular Guest",
     rating: 5,
   },
   {
     quote: "Best food at best price possible. The dosas are crispy and sambhar is authentic!",
-    author: "Regular Guest",
+    author: "Office Worker",
     rating: 5,
   },
   {
@@ -30,7 +30,7 @@ const Reviews = () => {
         {/* Section Header */}
         <div className="text-center mb-16 animate-fade-in">
           <span className="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
-            Customer Love
+            Customer Reviews
           </span>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
             What Our Guests Say
@@ -81,10 +81,10 @@ const Reviews = () => {
           ))}
         </div>
 
-        {/* CTA */}
+        {/* Trust Text */}
         <div className="text-center mt-12 animate-fade-in">
-          <p className="text-muted-foreground mb-4">
-            Loved your experience? Share it with others!
+          <p className="text-foreground font-medium mb-4">
+            ⭐ Rated 5.0 by real customers on Google Maps
           </p>
           <a
             href="https://www.google.com/maps/place/Vindhu+Fast+Friendly+South+Indian"
@@ -92,7 +92,8 @@ const Reviews = () => {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
           >
-            Leave us a review on Google →
+            <ExternalLink className="w-4 h-4" />
+            See all reviews on Google →
           </a>
         </div>
       </div>

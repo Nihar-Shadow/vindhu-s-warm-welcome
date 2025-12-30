@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Phone, MapPin, Menu, X } from "lucide-react";
+import { Phone, MapPin, Menu, X, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Header = () => {
@@ -20,6 +20,10 @@ const Header = () => {
       element.scrollIntoView({ behavior: "smooth" });
     }
     setIsMenuOpen(false);
+  };
+
+  const openWhatsApp = () => {
+    window.open("https://wa.me/918847829160?text=Hi%20Vindhu!%20I%20want%20to%20enquire%20about%20your%20restaurant.", "_blank");
   };
 
   return (
@@ -50,21 +54,30 @@ const Header = () => {
           </nav>
 
           {/* CTA Buttons */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-2">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={openWhatsApp}
+              className="text-accent hover:text-accent hover:bg-accent/10"
+            >
+              <MessageCircle className="w-4 h-4" />
+              WhatsApp
+            </Button>
             <Button
               variant="outline"
               size="sm"
               onClick={() => window.open("https://maps.google.com/?q=Vindhu+Fast+Friendly+South+Indian+Bhubaneswar", "_blank")}
             >
               <MapPin className="w-4 h-4" />
-              Directions
+              Visit Us
             </Button>
             <Button
               size="sm"
               onClick={() => window.open("tel:08847829160")}
             >
               <Phone className="w-4 h-4" />
-              Call Now
+              Call & Book
             </Button>
           </div>
 
@@ -92,24 +105,35 @@ const Header = () => {
                 </button>
               ))}
             </nav>
-            <div className="flex gap-3 mt-4 pt-4 border-t border-border">
+            <div className="flex flex-col gap-3 mt-4 pt-4 border-t border-border">
               <Button
                 variant="outline"
                 size="sm"
-                className="flex-1"
-                onClick={() => window.open("https://maps.google.com/?q=Vindhu+Fast+Friendly+South+Indian+Bhubaneswar", "_blank")}
+                className="w-full justify-center text-accent border-accent/30 hover:bg-accent/10"
+                onClick={openWhatsApp}
               >
-                <MapPin className="w-4 h-4" />
-                Directions
+                <MessageCircle className="w-4 h-4" />
+                WhatsApp Us
               </Button>
-              <Button
-                size="sm"
-                className="flex-1"
-                onClick={() => window.open("tel:08847829160")}
-              >
-                <Phone className="w-4 h-4" />
-                Call Now
-              </Button>
+              <div className="flex gap-3">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="flex-1"
+                  onClick={() => window.open("https://maps.google.com/?q=Vindhu+Fast+Friendly+South+Indian+Bhubaneswar", "_blank")}
+                >
+                  <MapPin className="w-4 h-4" />
+                  Visit Us
+                </Button>
+                <Button
+                  size="sm"
+                  className="flex-1"
+                  onClick={() => window.open("tel:08847829160")}
+                >
+                  <Phone className="w-4 h-4" />
+                  Call & Book
+                </Button>
+              </div>
             </div>
           </div>
         )}
