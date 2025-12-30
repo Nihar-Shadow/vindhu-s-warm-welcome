@@ -1,6 +1,10 @@
-import { Heart, Phone, MapPin } from "lucide-react";
+import { Heart, Phone, MapPin, MessageCircle } from "lucide-react";
 
 const Footer = () => {
+  const openWhatsApp = () => {
+    window.open("https://wa.me/918847829160?text=Hi%20Vindhu!%20I%20want%20to%20enquire%20about%20your%20restaurant.", "_blank");
+  };
+
   return (
     <footer className="bg-card border-t border-border py-12">
       <div className="container mx-auto px-4">
@@ -14,14 +18,14 @@ const Footer = () => {
               Fast Friendly South Indian
             </p>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Authentic home-style South Indian food at honest prices. 
-              A neighborhood restaurant that feels like home.
+              Simple food, clean place, honest prices — that's what we're known for 
+              in Kendriya Vihar. Come eat with us!
             </p>
           </div>
 
           {/* Quick Contact */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Quick Contact</h4>
+            <h4 className="font-semibold text-foreground mb-4">Contact Us</h4>
             <div className="space-y-3">
               <a
                 href="tel:08847829160"
@@ -30,11 +34,18 @@ const Footer = () => {
                 <Phone className="w-4 h-4" />
                 088478 29160
               </a>
+              <button
+                onClick={openWhatsApp}
+                className="flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors"
+              >
+                <MessageCircle className="w-4 h-4" />
+                WhatsApp Us
+              </button>
               <div className="flex items-start gap-2 text-muted-foreground">
                 <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
                 <span className="text-sm">
-                  Road, Kendriya Vihar, Bhubaneswar,<br />
-                  Odisha 752054
+                  Kendriya Vihar, Badaraghunathpur,<br />
+                  Bhubaneswar, Odisha 752054
                 </span>
               </div>
             </div>
@@ -42,12 +53,13 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Our Services</h4>
+            <h4 className="font-semibold text-foreground mb-4">What We Offer</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>🍽️ Dine-in Available</li>
               <li>🥡 Takeaway Available</li>
               <li>👨‍👩‍👧‍👦 Family Friendly</li>
-              <li>💰 ₹1–200 per person</li>
+              <li>💰 ₹35–200 per person</li>
+              <li>⭐ 5.0 rated on Google</li>
             </ul>
           </div>
         </div>

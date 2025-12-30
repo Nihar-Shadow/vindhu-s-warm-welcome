@@ -6,6 +6,7 @@ import Reviews from "@/components/Reviews";
 import Gallery from "@/components/Gallery";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import MobileCallButton from "@/components/MobileCallButton";
 
 const Index = () => {
   return (
@@ -20,6 +21,7 @@ const Index = () => {
         <Contact />
       </main>
       <Footer />
+      <MobileCallButton />
     </div>
   );
 };

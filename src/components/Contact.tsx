@@ -1,7 +1,11 @@
-import { Phone, MapPin, Clock, Navigation } from "lucide-react";
+import { Phone, MapPin, Clock, Navigation, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Contact = () => {
+  const openWhatsApp = () => {
+    window.open("https://wa.me/918847829160?text=Hi%20Vindhu!%20I%20want%20to%20enquire%20about%20your%20restaurant.", "_blank");
+  };
+
   return (
     <section id="contact" className="py-20 bg-warm-gradient">
       <div className="container mx-auto px-4">
@@ -11,10 +15,10 @@ const Contact = () => {
             Visit Us
           </span>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Come Say Hello
+            Come to Vindhu Today
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            We're just a call or a short drive away. Stop by for a warm meal!
+            Located in Kendriya Vihar — just call or walk in for a warm meal!
           </p>
         </div>
 
@@ -36,7 +40,7 @@ const Contact = () => {
                     088478 29160
                   </a>
                   <p className="text-sm text-muted-foreground mt-1">
-                    Tap to call directly
+                    Tap to call & book your table
                   </p>
                 </div>
               </div>
@@ -51,9 +55,12 @@ const Contact = () => {
                 <div className="flex-1">
                   <h3 className="font-semibold text-foreground mb-1">Address</h3>
                   <p className="text-foreground/80">
-                    Road, Kendriya Vihar,<br />
-                    Bhubaneswar, Badaraghunathpur,<br />
+                    Kendriya Vihar,<br />
+                    Badaraghunathpur, Bhubaneswar,<br />
                     Odisha 752054
+                  </p>
+                  <p className="text-sm text-muted-foreground mt-2">
+                    Near the main road — easy to find!
                   </p>
                 </div>
               </div>
@@ -76,30 +83,41 @@ const Contact = () => {
                     </span>
                   </div>
                   <p className="text-sm text-muted-foreground mt-2">
-                    No delivery service available
+                    Walk-ins welcome • No delivery
                   </p>
                 </div>
               </div>
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                size="lg"
-                onClick={() => window.open("tel:08847829160")}
-                className="flex-1"
-              >
-                <Phone className="w-5 h-5" />
-                Call Now
-              </Button>
+            <div className="flex flex-col gap-3">
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Button
+                  size="lg"
+                  onClick={() => window.open("tel:08847829160")}
+                  className="flex-1"
+                >
+                  <Phone className="w-5 h-5" />
+                  Call & Book a Table
+                </Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  onClick={() => window.open("https://maps.google.com/?q=Vindhu+Fast+Friendly+South+Indian+Bhubaneswar", "_blank")}
+                  className="flex-1"
+                >
+                  <Navigation className="w-5 h-5" />
+                  Visit Vindhu Today
+                </Button>
+              </div>
               <Button
                 variant="outline"
                 size="lg"
-                onClick={() => window.open("https://maps.google.com/?q=Vindhu+Fast+Friendly+South+Indian+Bhubaneswar", "_blank")}
-                className="flex-1"
+                onClick={openWhatsApp}
+                className="w-full text-accent border-accent/30 hover:bg-accent/10 hover:text-accent"
               >
-                <Navigation className="w-5 h-5" />
-                Get Directions
+                <MessageCircle className="w-5 h-5" />
+                Message on WhatsApp
               </Button>
             </div>
           </div>
@@ -115,7 +133,7 @@ const Contact = () => {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Vindhu Restaurant Location"
+                title="Vindhu Restaurant Location in Kendriya Vihar Bhubaneswar"
               />
             </div>
           </div>

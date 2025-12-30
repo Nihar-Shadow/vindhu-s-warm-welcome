@@ -1,26 +1,26 @@
-import { Heart, Sparkles, Users, Leaf } from "lucide-react";
+import { Heart, Sparkles, Users, Leaf, Clock, IndianRupee } from "lucide-react";
 import interiorImage from "@/assets/interior.jpg";
 
-const features = [
+const whyLocalsChoose = [
   {
     icon: Sparkles,
-    title: "Clean Environment",
-    description: "We take pride in maintaining a spotless and hygienic space for our guests.",
+    title: "Clean Kitchen",
+    description: "We keep our kitchen spotless. Come see for yourself.",
   },
   {
     icon: Heart,
     title: "Polite Staff",
-    description: "Our friendly team welcomes you like family and ensures a pleasant experience.",
+    description: "Our team treats every guest like family.",
   },
   {
-    icon: Users,
-    title: "Family Friendly",
-    description: "A warm, comfortable atmosphere perfect for families and friends.",
+    icon: IndianRupee,
+    title: "₹35–200 Meals",
+    description: "Good food doesn't have to be expensive.",
   },
   {
-    icon: Leaf,
-    title: "Fresh Ingredients",
-    description: "We use only the freshest ingredients to create authentic South Indian flavors.",
+    icon: Clock,
+    title: "Quick Service",
+    description: "Hot food served fast. No long waits.",
   },
 ];
 
@@ -34,7 +34,7 @@ const About = () => {
             <div className="rounded-2xl overflow-hidden shadow-card">
               <img
                 src={interiorImage}
-                alt="Clean and cozy restaurant interior"
+                alt="Clean interior of Vindhu restaurant in Kendriya Vihar Bhubaneswar"
                 className="w-full h-auto object-cover aspect-[4/3]"
               />
             </div>
@@ -49,33 +49,32 @@ const About = () => {
               About Us
             </span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
-              A Neighborhood Restaurant That Feels Like Home
+              Why Locals Choose Vindhu
             </h2>
-            <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-              At Vindhu, we believe that good food brings people together. Our small, 
-              family-run restaurant has been serving the Bhubaneswar community with love, 
-              serving authentic South Indian dishes made from traditional recipes passed 
-              down through generations.
+            <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
+              We're not fancy. We're just a small restaurant in Kendriya Vihar that 
+              serves honest South Indian food at honest prices. Families, students, 
+              office workers — everyone's welcome here.
             </p>
             <p className="text-muted-foreground mb-10 leading-relaxed">
-              Whether you're grabbing a quick breakfast dosa or enjoying a leisurely 
-              meal with family, we promise you'll always find a clean space, friendly 
-              faces, and food that tastes like home cooking.
+              Our regulars come for the crispy dosas, stay for the homestyle meals, 
+              and keep coming back because the food tastes like it's made at home. 
+              No shortcuts, no compromise.
             </p>
 
-            {/* Features Grid */}
-            <div className="grid sm:grid-cols-2 gap-6">
-              {features.map((feature, index) => (
+            {/* Why Locals Choose Us Grid */}
+            <div className="grid sm:grid-cols-2 gap-4">
+              {whyLocalsChoose.map((feature, index) => (
                 <div
                   key={feature.title}
-                  className="flex items-start gap-4 p-4 bg-card rounded-xl shadow-soft hover:shadow-card transition-shadow"
+                  className="flex items-start gap-3 p-4 bg-card rounded-xl shadow-soft hover:shadow-card transition-shadow"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className="p-3 bg-primary/10 rounded-lg flex-shrink-0">
+                  <div className="p-2.5 bg-primary/10 rounded-lg flex-shrink-0">
                     <feature.icon className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground mb-1">{feature.title}</h3>
+                    <h3 className="font-semibold text-foreground mb-0.5">{feature.title}</h3>
                     <p className="text-sm text-muted-foreground">{feature.description}</p>
                   </div>
                 </div>
