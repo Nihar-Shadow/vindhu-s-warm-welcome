@@ -1,5 +1,8 @@
+import { useRef, useState, useEffect } from "react";
+
 const menuData = [
   {
+    id: "idli",
     title: "Idli",
     emoji: "🫓",
     items: [
@@ -10,6 +13,7 @@ const menuData = [
     ],
   },
   {
+    id: "vada",
     title: "Vada",
     emoji: "🍩",
     items: [
@@ -19,16 +23,19 @@ const menuData = [
     ],
   },
   {
+    id: "poori",
     title: "Poori",
     emoji: "🍞",
     items: [{ name: "Poori", price: "₹50" }],
   },
   {
+    id: "upma",
     title: "Upma",
     emoji: "🍲",
     items: [{ name: "Upma", price: "₹40" }],
   },
   {
+    id: "beverages",
     title: "Beverages",
     emoji: "☕",
     items: [
@@ -37,6 +44,7 @@ const menuData = [
     ],
   },
   {
+    id: "dosa",
     title: "Dosa",
     emoji: "🥞",
     items: [
@@ -57,6 +65,7 @@ const menuData = [
     ],
   },
   {
+    id: "combos",
     title: "Vindhu Combos",
     emoji: "🍱",
     items: [
@@ -71,6 +80,7 @@ const menuData = [
     ],
   },
   {
+    id: "chinese",
     title: "Chinese",
     emoji: "🥡",
     items: [
@@ -84,6 +94,7 @@ const menuData = [
     ],
   },
   {
+    id: "rice-noodles",
     title: "Rice & Noodles",
     emoji: "🍜",
     items: [
@@ -97,6 +108,7 @@ const menuData = [
     ],
   },
   {
+    id: "indian",
     title: "Indian",
     emoji: "🍛",
     items: [
@@ -114,6 +126,7 @@ const menuData = [
     ],
   },
   {
+    id: "biryani",
     title: "Biryani",
     emoji: "🍗",
     items: [
@@ -127,11 +140,49 @@ const menuData = [
 ];
 
 const Menu = () => {
+  const [activeCategory, setActiveCategory] = useState(menuData[0].id);
+  const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+  const navRef = useRef<HTMLDivElement>(null);
+
+  const scrollToCategory = (id: string) => {
+    const element = sectionRefs.current[id];
+    if (element) {
+      const headerOffset = 160; // Account for fixed header + sticky nav
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 200;
+
+      for (const category of menuData) {
+        const element = sectionRefs.current[category.id];
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveCategory(category.id);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <section id="menu" className="py-16 md:py-20 bg-secondary/30">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-12 animate-fade-in">
+        <div className="text-center mb-8 animate-fade-in">
           <span className="inline-block px-4 py-1 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4">
             Our Menu
           </span>
@@ -143,11 +194,36 @@ const Menu = () => {
           </p>
         </div>
 
+        {/* Sticky Category Navigation */}
+        <div 
+          ref={navRef}
+          className="sticky top-16 md:top-20 z-40 bg-background/95 backdrop-blur-sm -mx-4 px-4 py-3 mb-8 border-b border-border shadow-sm"
+        >
+          <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-1">
+            {menuData.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => scrollToCategory(category.id)}
+                className={`flex items-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-200 ${
+                  activeCategory === category.id
+                    ? "bg-primary text-primary-foreground shadow-sm"
+                    : "bg-card text-foreground/70 hover:bg-primary/10 hover:text-primary"
+                }`}
+              >
+                <span>{category.emoji}</span>
+                <span>{category.title}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
         {/* Menu Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {menuData.map((category) => (
             <div
-              key={category.title}
+              key={category.id}
+              id={`menu-${category.id}`}
+              ref={(el) => (sectionRefs.current[category.id] = el)}
               className="bg-card rounded-2xl p-5 shadow-soft hover:shadow-card transition-shadow duration-300"
             >
               {/* Category Header */}
