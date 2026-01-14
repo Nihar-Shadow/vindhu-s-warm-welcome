@@ -1,73 +1,88 @@
-# Welcome to your Lovable project
+# Vindhu – South Indian Restaurant Website
 
-## Project info
+Live site: **https://vindhu.netlify.app/**
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+This repository contains the marketing website for **Vindhu**, a fast, friendly South Indian restaurant located in Kendriya Vihar, Bhubaneswar.  
+The site focuses on simple, homely South Indian food, clean ambience, and honest prices, highlighting why locals choose Vindhu for everyday meals.
 
-## How can I edit this code?
+## Overview
 
-There are several ways of editing your application.
+The website is a single-page React application that presents:
 
-**Use Lovable**
+- A hero section introducing Vindhu and its core promise
+- An About section describing the restaurant’s philosophy and location
+- A Menu highlight section for popular South Indian dishes and pricing range
+- A Reviews section showcasing real guest feedback and ratings
+- A Gallery with photos of food and the restaurant space
+- A Contact section with address and call-to-book details
+- A mobile-friendly sticky call button for quick phone calls
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+The design is fully responsive so guests can easily browse the site on mobile, tablet, and desktop.
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
+## Tech Stack
 
 This project is built with:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **React** (SPA structure and components)
+- **TypeScript**
+- **Vite** (bundler and dev server)
+- **Tailwind CSS** (utility-first styling)
+- **shadcn/ui + Radix UI** (accessible, composable UI primitives)
 
-## How can I deploy this project?
+## Project Structure (high level)
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+- `src/pages/Index.tsx` – main landing page that composes all sections
+- `src/components` – feature components (Hero, About, Menu, Reviews, Gallery, Contact, Header, Footer, MobileCallButton)
+- `src/components/ui` – reusable UI building blocks from shadcn/ui
+- `public` – static assets such as favicon and meta files
 
-## Can I connect a custom domain to my Lovable project?
+## Getting Started (Local Development)
 
-Yes, you can!
+### Prerequisites
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+- Node.js (LTS recommended)
+- npm (comes with Node.js)
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+### Installation
+
+```bash
+# Clone the repository
+git clone <YOUR_GIT_URL>
+
+# Move into the project folder
+cd vindhu-s-warm-welcome
+
+# Install dependencies
+npm install
+```
+
+### Run the development server
+
+```bash
+npm run dev
+```
+
+Then open the URL printed in the terminal (typically `http://localhost:5173`) in your browser.
+
+### Build for production
+
+```bash
+npm run build
+```
+
+The optimized production build will be generated in the `dist` folder and can be deployed to any static hosting provider (such as Netlify, which is used for the live site).
+
+## Available Scripts
+
+- `npm run dev` – start the Vite development server
+- `npm run build` – build the project for production
+- `npm run build:dev` – build in development mode
+- `npm run lint` – run ESLint over the codebase
+
+## Deployment
+
+The live version of this site is deployed on **Netlify**:
+
+- Live URL: **https://vindhu.netlify.app/**
+
+You can deploy your own instance by building the project (`npm run build`) and connecting the repository to Netlify (or any other static hosting service), using `npm run build` as the build command and `dist` as the publish directory.
